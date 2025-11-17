@@ -1,0 +1,44 @@
+
+<link rel="stylesheet" href"style.css">
+
+<!-- Container centers the buttons -->
+<div class="centered-buttons">
+
+  
+  <h1 class="emerald-heading">Emerald Heading</h1>
+  <!-- Link styled as a button that opens overlay -->
+  <a href="#about-overlay"
+     role="button"
+     class="emerald-button"
+     aria-haspopup="dialog"
+     aria-controls="about-overlay"
+     aria-expanded="false"
+     id="about-button">
+   Emerald Button
+  </a>
+
+  <!-- Native button version with same ARIA setup -->
+  <button
+    class="emerald-button"
+    id="about-button"
+    aria-haspopup="dialog"
+    aria-controls="about-overlay"
+    aria-expanded="false">
+   Emerald Button
+  </button>
+  
+
+</div>
+
+<!-- 
+  Modal structure (hidden by default, shown via JS)
+
+  <div id="about-overlay"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="about-overlay-title"
+       hidden>
+    <h2 id="about-overlay-title">About the Exhibit</h2>
+
+  </div>
+-->
