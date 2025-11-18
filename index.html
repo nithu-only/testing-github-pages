@@ -1,9 +1,7 @@
-
+<!DOCTYPE html>
+<html>
+<head>
 <style>
-
-/* =========================================
-   EMERALD BUTTON
-========================================= */
 
 .emerald-button {
   position: relative;
@@ -15,7 +13,7 @@
   padding: 0.75em 1.25em;
   padding-right: 3.5em;
   background: transparent;
-  color: #d8ffe8; /* pale emerald-tinted text */
+  color: #d8ffe8;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
   text-transform: uppercase;
   letter-spacing: 2.5px;
@@ -25,8 +23,6 @@
   filter: brightness(0.95);
   border: none;
 }
-
-/* Emerald animated border */
 .emerald-button::before {
   content: "";
   position: absolute;
@@ -34,46 +30,20 @@
   left: -2px;
   right: -2px;
   bottom: -2px;
-
-  /* EMERALD GRADIENT – smooth, multi-shade green */
-  background: linear-gradient(
-    90deg,
-    #144d32,  /* deep forest */
-    #1f7a54,  /* rich emerald */
-    #2f9e6f,  /* bright emerald */
-    #53d19b,  /* light jade */
-    #2f9e6f,  /* repeat emerald */
-    #1f7a54,  /* deep emerald */
-    #144d32   /* forest */
-  );
-
+  background: linear-gradient(90deg,#144d32,#1f7a54,#2f9e6f,#53d19b,#2f9e6f,#1f7a54,#144d32);
   z-index: -1;
   border-radius: 0px;
   background-size: 300% 100%;
   transition: background-position 0.8s ease;
-
-  /* Mask to create the hollow border effect */
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   -webkit-mask-composite: destination-out;
-
   padding: 2px;
   box-sizing: border-box;
 }
-
-/* Animate emerald gradient */
-.emerald-button:hover::before {
-  background-position: 100% 0;
-}
-
-/* Press effect */
-.emerald-button:active {
-  transform: translateY(2px) scale(0.98);
-  filter: brightness(0.85);
-}
-
-/* Arrow – emerald glow version */
+.emerald-button:hover::before { background-position: 100% 0; }
+.emerald-button:active { transform: translateY(2px) scale(0.98); filter: brightness(0.85); }
 .emerald-button::after {
   content: "\2794";
   position: absolute;
@@ -84,22 +54,41 @@
   align-items: center;
   justify-content: center;
   font-size: 1em;
-
-  color: #6fffc0; /* bright mint-emerald */
+  color: #6fffc0;
   transition: transform 0.3s ease, color 0.3s ease;
   pointer-events: none;
 }
-
-/* Arrow animation + deeper emerald on hover */
 .emerald-button:hover::after {
   animation: bounceright 0.4s alternate ease-in-out infinite;
-  color: #2f9e6f; /* emerald */
+  color: #2f9e6f;
+}
+@keyframes bounceright { from { transform: translateX(0); } to { transform: translateX(4px); } }
+
+.emerald-heading {
+  background: linear-gradient(90deg,#144d32,#1f7a54,#2f9e6f,#53d19b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
-@keyframes bounceright {
-  from { transform: translateX(0); }
-  to   { transform: translateX(4px); }
+
+html,body {
+  background-color: #111;
+  padding-bottom: 40vh;
+  flex-direction: column;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Montserrat", Helvetica, sans-serif;
 }
+.centered-buttons { display: flex; flex-direction: column; align-items: center; gap: 2.5rem; }
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+.hidden { display: none; }
 
 @media (max-width: 600px) {
   .emerald-button {
@@ -114,87 +103,49 @@
     font-size: 0.95em;
   }
 }
-
-.emerald-heading {
-  background: linear-gradient(
-    90deg,
-    #144d32, /* deep forest */
-    #1f7a54, /* emerald */
-    #2f9e6f, /* bright emerald */
-    #53d19b  /* jade */
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-weight: 700;
-  letter-spacing: 1px;
-
-}
-
-
-html,
-body {
-  background-color: #111;
-
-  padding-bottom: 40vh;
-
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Montserrat", Helvetica, sans-serif;
-}
-
-.centered-buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.5rem; /* spacing between the buttons */
-}
-
-
 </style>
+</head>
+<body>
+<div class="centered-buttons"></div>
+<h1 class="emerald-heading">STUDY MATERIALS</h1>
 
-<!-- Container centers the buttons -->
-<div class="centered-buttons">
-
-  
-  <h1 class="emerald-heading">Emerald Heading</h1>
-  <!-- Link styled as a button that opens overlay -->
-  <a href="https://drive.google.com/file/d/1RoqJfDMKyveMaNiGr392bCfU0hXl7ZZq/view?usp=sharing"
-     role="button"
-     class="emerald-button"
-     aria-haspopup="dialog"
-     aria-controls="about-overlay"
-     aria-expanded="false"
-     id="about-button">
-   Emerald Button
-  </a>
-
-  <!-- Native button version with same ARIA setup -->
-  <button
-    class="emerald-button"
-    id="about-button"
-    aria-haspopup="dialog"
-    aria-controls="about-overlay"
-    aria-expanded="false">
-   Emerald Button
-  </button>
-  
-
+<!-- Category Buttons -->
+<div style="display: flex; gap: 1.5rem; margin-bottom: 2rem;">
+  <button class="emerald-button" onclick="showSection('bsc')">BSc</button>
+  <button class="emerald-button" onclick="showSection('msc')">MSc</button>
 </div>
 
-<!-- 
-  Modal structure (hidden by default, shown via JS)
-
-  <div id="about-overlay"
-       role="dialog"
-       aria-modal="true"
-       aria-labelledby="about-overlay-title"
-       hidden>
-    <h2 id="about-overlay-title">About the Exhibit</h2>
-
+<!-- BSC SECTION -->
+<div id="bsc" class="centered-buttons">
+  <h2 class="emerald-heading">BSc Subjects</h2>
+  <div class="grid">
+    <a href="https://drive.google.com/drive/folders/1F9nqQQK2l8jQVPfr105SGCl1btk2FmLl?usp=drive_link" class="emerald-button">Programming Language C</a>
+    <a href="https://drive.google.com/drive/folders/1_HYLO_hi1kab_QOrLpI8-b2kFZ7kd_kQ?usp=drive_link" class="emerald-button">Programming Language C++</a>
+    <a href="https://drive.google.com/drive/folders/1-Ewf47NHF6Xl6SuW6UbwU9pFuUQYbUWl?usp=drive_link" class="emerald-button">Programming Language  Java</a>
+    <a href="https://drive.google.com/drive/folders/1Lnk5xEtZ3mvTN5HsntLAhOYP-Ko2gQWl?usp=drive_link" class="emerald-button">Programming Language Python</a>
+    <a href="https://drive.google.com/drive/folders/1R4Ea2ejwzfjY7SQsoGRwSs1JxyR6j206?usp=drive_link" class="emerald-button">Cloud Computing & Big Data</a>
+    <a href="https://drive.google.com/drive/folders/18XJ9DOdKzmz73trI2cD6K3b4JmM4M5eQ?usp=drive_link" class="emerald-button">Syllabus </a>
   </div>
--->
+</div>
+
+<!-- MSC SECTION -->
+<div id="msc" class="centered-buttons hidden">
+  <h2 class="emerald-heading">MSc Subjects</h2>
+  <div class="grid">
+    <a href="https://drive.google.com/drive/folders/1Yv5Jedbar0m1-kKf59uu6DvvrovM5XZX?usp=drive_link" class="emerald-button">Programming Laguage python</a>
+    <a href="https://drive.google.com/drive/folders/1q47wuftypSaVFMgCGbz36N7Is4X0O_X7?usp=drive_link" class="emerald-button">Programming Laguage C++</a>
+    <a href="https://drive.google.com/drive/folders/104YWqjs7wgb4IOEy98mgagBkwPojalVa?usp=drive_link" class="emerald-button">Introduction to Scripting Languages </a>
+    <a href="https://drive.google.com/drive/folders/1iDa3PSbYeiObr8wZ_RI-qhsQXXq3kBfQ?usp=drive_link" class="emerald-button">Syllabus </a>
+  </div>
+</div>
+
+<script>
+function showSection(section) {
+  document.getElementById("bsc").classList.add("hidden");
+  document.getElementById("msc").classList.add("hidden");
+  document.getElementById(section).classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
